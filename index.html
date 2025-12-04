@@ -1,202 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sourabh Dewangan — Virtual Executive Assistant</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Virtual Executive Assistant — Operations Support, Workflow Automation (n8n), Zoho CRM, QuickBooks, Project Management." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourabh Dewangan - VIRTUAL EXECUTIVE ASSISTANT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .header .tagline {
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .story-section {
+            margin-bottom: 50px;
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+        }
+
+        .story-section h2 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .story-section p {
+            color: #555;
+            line-height: 1.9;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .service-highlights {
+            list-style: none;
+        }
+
+        .service-highlights li {
+            padding-left: 22px;
+            margin-bottom: 8px;
+            position: relative;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .service-highlights li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .impact-section {
+            margin-bottom: 50px;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .impact-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .impact-label {
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        .promise-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .promise-section h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .promise-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .why-section {
+            background: #f8f9ff;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+        }
+
+        .why-card h3 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer {
+            background: #f0f0f0;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .story-section {
+                padding: 25px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="brand">
-        <div class="brand-logo" aria-hidden="true">SD</div>
-        <div>
-          <h1 class="name">Sourabh Dewangan</h1>
-          <p class="role">Virtual Executive Assistant — Ops & Automation</p>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <a href="#services">Services</a>
-        <a href="#why">Why</a>
-        <a href="#impact">Impact</a>
-        <button id="contactBtn" class="btn-primary small">Get in Touch</button>
-      </nav>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1>SOURABH DEWANGAN</h1>
+                <p class="subtitle">VIRTUAL EXECUTIVE ASSISTANT</p>
+                <p class="tagline">Transforming chaos into clarity. Empowering leaders to focus on what matters most.</p>
+            	<div class="contact-info" style="text-align: center; margin-top: 16px; color: #ffffff;">
+    <div style="margin-bottom: 6px;">
+        📧 
+        <a href="mailto:dewangan.sourabh.in@gmail.com" style="color: #ffffff; text-decoration: none;">
+            dewangan.sourabh.in@gmail.com
+        </a>
     </div>
-  </header>
+    <div>
+        📱 
+        <span style="color: #ffffff;">+91 7415428178</span>
+    </div>
+</div>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Strategic Ops & Automation for fast-moving teams</p>
-          <h2>Save time. Reduce noise. Scale systems that grow with you.</h2>
-          <p class="lead">I learn your systems, automate workflows using modern tools, and create frameworks that scale with your business — so founders can focus on growth.</p>
-
-          <div class="hero-ctas">
-            <button id="contactBtnHero" class="btn-primary">Work together</button>
-            <a href="#services" class="btn-ghost">See Services</a>
-          </div>
-
-          <ul class="quick-stats">
-            <li><strong>5+</strong><span>Years supporting leaders</span></li>
-            <li><strong>n8n • Zoho • QuickBooks</strong><span>Tools mastered</span></li>
-            <li><strong>30%+</strong><span>Time saved through automation</span></li>
-          </ul>
-        </div>
-
-        <aside class="hero-card">
-          <h3>Contact</h3>
-          <p class="muted">I typically reply within 24 hours</p>
-          <div class="contact-block">
-            <a href="mailto:dewangan.sourabh.in@gmail.com" id="mailLink" class="mailto">dewangan.sourabh.in@gmail.com</a>
-            <p class="phone">+91 74154 28178</p>
-            <div class="mini-cta">
-              <button id="downloadCv" class="btn-outline">Download CV</button>
+		</div>
+	</div>
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Story Section -->
+            <div class="story-section">
+                <h2>Your Challenge</h2>
+                <p>You're an ambitious entrepreneur, founder, or business leader juggling countless moving parts. Your inbox overflows. Your calendar is fragmented. Administrative tasks consume the energy you should be investing in strategy, growth, and innovation.</p>
+                <p>You need someone who doesn't just execute tasks, but <span class="highlight">understands your vision, anticipates your needs, and creates systems that keep everything running smoothly</span>,so you can focus on what you do best.</p>
             </div>
-          </div>
 
-          <div class="badge">Operations Support & Optimization</div>
-        </aside>
-      </div>
-    </section>
+            <!-- Impact Numbers -->
+            <div class="impact-section">
+                <h2 class="section-title">What I bring in table</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">5+</div>
+                        <div class="impact-label">Years Supporting Leaders</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">100%</div>
+                        <div class="impact-label">Operational Efficiency</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">30%+</div>
+                        <div class="impact-label">Time Savings Through Automation</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">15+</div>
+                        <div class="impact-label">Tools & Platforms Mastered</div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Story -->
-    <section class="wrap story" id="challenge">
-      <div class="story-box">
-        <h2>Your challenge</h2>
-        <p>You're juggling priorities, meetings, and admin work that eats into your strategy time. You need a practical partner who builds systems — not just completes tasks — so your team can move faster without breaking things.</p>
-        <p class="highlight">I don't just manage tasks — I map systems, automate workflows, and implement repeatable processes that scale.</p>
-      </div>
-    </section>
+            <!-- Promise -->
+            <div class="promise-section">
+                <h2>My Promise</h2>
+                <p>I go beyond task execution by learning your tools, automating processes, and building systems that grow with your business. I bring 5+ years of executive-level support, combined with expertise in automation, project management, and strategic operations. Your success is my mission.</span>.</p>
+            </div>
 
-    <!-- Impact -->
-    <section id="impact" class="wrap impact">
-      <h2 class="section-heading">Impact at a glance</h2>
-      <div class="impact-grid">
-        <div class="impact-item"><div class="big">5+</div><div class="label">Years supporting leaders</div></div>
-        <div class="impact-item"><div class="big">100%</div><div class="label">Operational reliability</div></div>
-        <div class="impact-item"><div class="big">30%+</div><div class="label">Avg time saved (automation)</div></div>
-        <div class="impact-item"><div class="big">15+</div><div class="label">Tools & platforms</div></div>
-      </div>
-    </section>
+            <!-- Services -->
+            <div>
+                <h2 class="section-title">How I Can Help</h2>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">📅</div>
+                        <h3>Executive & Administrative Support</h3>
+                        <p>I manage the operational foundation of your business, handling the details so you can lead.</p>
+                        <ul class="service-highlights">
+                            <li>Calendar & Schedule Management</li>
+                            <li>Efficient Email Sorting & communication Support</li>
+                            <li>File Organization & Database Management</li>
+                            <li>Reports & Executive Dashboards</li>
+                            <li>Meeting Coordination</li>
+                        </ul>
+                    </div>
 
-    <!-- Services -->
-    <section id="services" class="wrap services">
-      <h2 class="section-heading">Services I offer</h2>
-      <div class="services-grid">
-        <article class="service">
-          <div class="icon">📅</div>
-          <h3>Executive & Admin Support</h3>
-          <p>Calendar management, inbox triage, meeting coordination, executive dashboards and file organisation.</p>
-        </article>
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Workflow & Process Automation</h3>
+                        <p>Eliminate repetitive tasks. I design and implement automations that save time and reduce errors.</p>
+                        <ul class="service-highlights">
+                            <li>N8N Workflow Automation</li>
+                            <li>CRM Setup & Management</li>
+                            <li>SOP Development & Implementation</li>
+                            <li>Process Optimization</li>
+                            <li>Lead & Data Automation</li>
+                        </ul>
+                    </div>
 
-        <article class="service">
-          <div class="icon">⚙️</div>
-          <h3>Workflow & Automation</h3>
-          <p>n8n automations, Zapier alternatives, process mapping, SOPs and integrations across your stack.</p>
-        </article>
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Project & Operations Management</h3>
+                        <p>I coordinate teams, track progress, and ensure projects stay on track and deliver results.</p>
+                        <ul class="service-highlights">
+                            <li>Project Tracking & Coordination</li>
+                            <li>Team Communication Management</li>
+                            <li>Task & Deadline Management</li>
+                            <li>Asana & Project Tools</li>
+                            <li>Stakeholder Updates</li>
+                        </ul>
+                    </div>
 
-        <article class="service">
-          <div class="icon">📊</div>
-          <h3>Project & Ops Management</h3>
-          <p>Asana setups, sprint coordination, task management and stakeholder reporting.</p>
-        </article>
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>Financial & Budget Management</h3>
+                        <p>I manage your financial operations, keeping cash flow healthy and budgets optimized.</p>
+                        <ul class="service-highlights">
+                            <li>QuickBooks & Accounting</li>
+                            <li>Invoice & Payment Processing</li>
+                            <li>Budget Planning & Tracking</li>
+                            <li>Vendor & Expense Management</li>
+                            <li>Financial Reporting</li>
+                        </ul>
+                    </div>
 
-        <article class="service">
-          <div class="icon">💰</div>
-          <h3>Finance & Budget Support</h3>
-          <p>QuickBooks support, invoicing, vendor management and budget tracking.</p>
-        </article>
+                    <!-- Service 5 -->
+                    <div class="service-card">
+                        <div class="service-icon">✈️</div>
+                        <h3>Event & Travel Coordination</h3>
+                        <p>I handle the logistics of travel and events, leaving you free to focus on the experience.</p>
+                        <ul class="service-highlights">
+                            <li>Travel Itinerary Planning</li>
+                            <li>Vendor & Hotel Coordination</li>
+                            <li>Event Logistics Management</li>
+                            <li>Budget-Friendly Solutions</li>
+                            <li>Last-Minute Adjustments</li>
+                        </ul>
+                    </div>
 
-        <article class="service">
-          <div class="icon">✈️</div>
-          <h3>Event & Travel Coordination</h3>
-          <p>End-to-end planning — itineraries, vendors, bookings and last-minute changes handled.</p>
-        </article>
+                    <!-- Service 6 -->
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Data Analysis & Insights</h3>
+                        <p>I turn raw data into actionable insights, helping you make informed decisions.</p>
+                        <ul class="service-highlights">
+                            <li>Data Analysis & Reporting</li>
+                            <li>Dashboard Creation</li>
+                            <li>Business Research & Competitive Analysis</li>
+                            <li>Performance Metrics Tracking</li>
+                            <li>Strategic Insights</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <article class="service">
-          <div class="icon">🔎</div>
-          <h3>Data & Research</h3>
-          <p>Dashboards, reports, competitive research and actionable insights for decision making.</p>
-        </article>
-      </div>
-    </section>
+            <!-- Why Choose Me -->
+            <div class="why-section">
+                <h2 class="section-title">Why Work With Me</h2>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <h3>🎯 Strategic Mindset</h3>
+                        <p>I go beyond execution by creating lean, flexible systems that support your growth journey.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>⚡ Automation Expert</h3>
+                        <p>Support you and your team by reducing manual tasks through smart automation and process improvements.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>🤝 Proactive Support</h3>
+                        <p>Anticipate your needs before they become problems and keep everything running like clockwork.</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Why -->
-    <section id="why" class="wrap why">
-      <h2 class="section-heading">Why work with me</h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <h4>Strategic mindset</h4>
-          <p>I design workflows and systems that scale, not one-off fixes.</p>
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p style="font-size: 16px; color: #666; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Ready to reclaim your time and focus on what matters? Let's discuss how I can become an integral part of your team.</p>
+                <a href="mailto:dewangan.sourabh.in@gmail.com?subject=Let's%20Connect&body=Hi%20Sourabh,%0A%0AI'm%20interested%20in%			20working%20with%20you." class="cta-button">
+  		Get in Touch</a>
+
+            </div>
         </div>
-        <div class="why-card">
-          <h4>Automation-first</h4>
-          <p>I remove repetitive work so your team focuses on growth.</p>
-        </div>
-        <div class="why-card">
-          <h4>Proactive partner</h4>
-          <p>I anticipate issues and keep operations running smoothly.</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="wrap cta-compact">
-      <div class="cta-inner">
-        <h3>Ready to reclaim your time?</h3>
-        <p>Let's scope a quick 30-minute call to map the quick wins and plan next steps.</p>
-        <div class="cta-actions">
-          <button id="contactPrimary" class="btn-primary large">Schedule a Call</button>
-          <a href="mailto:dewangan.sourabh.in@gmail.com?subject=Interest%20in%20VA%20Services" class="btn-ghost">Email directly</a>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Virtual Executive Assistant | Operations Support & Optimization</p>
+            <div class="contact-info">
+                <a href="mailto:dewangan.sourabh.in@gmail.com"; text-decoration: none;">dewangan.sourabh.in@gmail.com </a><br>+91 7415428178
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <strong>Sourabh Dewangan</strong>
-        <p class="muted">Virtual Executive Assistant — Operations Support & Optimization</p>
-      </div>
-      <div class="footer-contact">
-        <a href="mailto:dewangan.sourabh.in@gmail.com">dewangan.sourabh.in@gmail.com</a>
-        <p class="muted">+91 74154 28178</p>
-      </div>
     </div>
-  </footer>
-
-  <script>
-    // Simple handlers: open mail composer with prefill, and a faux "download CV" action
-    const mailLink = document.getElementById('mailLink');
-    const contactBtns = document.querySelectorAll('#contactBtn, #contactBtnHero, #contactPrimary, #contactBtn');
-    const downloadCv = document.getElementById('downloadCv');
-
-    function openMail(subject = "Let's connect", body = "Hi Sourabh,%0A%0AI'm interested in your VA services. Could we schedule a quick call?%0A%0AThanks,") {
-      const href = \`mailto:dewangan.sourabh.in@gmail.com?subject=\${encodeURIComponent(subject)}&body=\${body}\`;
-      window.location.href = href;
-    }
-
-    contactBtns.forEach(b => {
-      b && b.addEventListener('click', () => openMail("Interest in VA services", "Hi Sourabh,%0A%0AI'd like to discuss working together. Please share availability for a 20-30 minute call.%0A%0AThanks,"));
-    });
-
-    downloadCv && downloadCv.addEventListener('click', () => {
-      // if you want to serve a real CV, change the URL to your PDF path
-      const url = 'Sourabh_Dewangan_CV.pdf';
-      // attempt to download — graceful fallback if file doesn't exist
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Sourabh_Dewangan_CV.pdf';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-  </script>
 </body>
 </html>
